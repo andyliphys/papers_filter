@@ -1,0 +1,588 @@
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[         0,          0]
+NotebookDataLength[     24507,        587]
+NotebookOptionsPosition[     24063,        566]
+NotebookOutlinePosition[     24406,        581]
+CellTagsIndexPosition[     24363,        578]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+Cell[BoxData[
+ RowBox[{
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"targetPath", "=", 
+     RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "*)"}], 
+  "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"targetPath", "=", "\"\</home/ali/Dropbox/Server/papers/\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"triggerDay", "=", "1"}], ";"}], 
+   RowBox[{"(*", 
+    RowBox[{
+    "Keep", " ", "the", " ", "nature", " ", "output", " ", "for", " ", "the", 
+     " ", "defined", " ", "number", " ", "of", " ", "days", " ", "between", 
+     " ", "current", " ", "and", " ", "publication", " ", "date"}], "*)"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"authorsList", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<Blais\>\"", ",", "\"\<Glazman\>\"", ",", "\"\<Girvin\>\"", ",", 
+       "\"\<Schoelkopf\>\"", ",", "\"\<Catelani\>\"", ",", "\"\<DiCarlo\>\"", 
+       ",", "\"\<Houck\>\"", ",", "\"\<Schuster\>\"", ",", "\"\<Le Hur\>\"", 
+       ",", "\"\<Delsing\>\"", ",", "\"\<Wallraff\>\"", ",", 
+       "\"\<Gambetta\>\"", ",", "\"\<Korotkov\>\"", ",", 
+       "\"\<Petruccione\>\"", ",", "\"\<Devoret\>\"", ",", 
+       "\"\<Manucharyan\>\"", ",", "\"\<Hekking\>\"", ",", "\"\<Guichard\>\"",
+        ",", "\"\<Kerman\>\"", ",", "\"\<Koch\>\"", ",", "\"\<Lukin\>\"", 
+       ",", "\"\<Prosen\>\"", ",", "\"\<Cirac\>\"", ",", "\"\<Keeling\>\"", 
+       ",", "\"\<Hartmann\>\"", ",", "\"\<Schmidt\>\"", ",", 
+       "\"\<Hornberger\>\"", ",", "\"\<Nori\>\"", ",", "\"\<Tureci\>\"", ",", 
+       "\"\<Kehrein\>\"", ",", "\"\<Hafezi\>\"", ",", "\"\<Zwolak\>\"", ",", 
+       "\"\<T. E. Lee\>\"", ",", "\"\<Knap\>\"", ",", "\"\<Martinis\>\"", 
+       ",", "\"\<Jiasen Jin\>\"", ",", "\"\<L. Jiang\>\"", ",", 
+       "\"\<Ciuti\>\"", ",", "\"\<Mitra\>\"", ",", "\"\<Wilhelm\>\"", ",", 
+       "\"\<Lupascu\>\"", ",", "\"\<C.M. Wilson\>\"", ",", 
+       "\"\<C. M. Wilson\>\"", ",", "\"\<Jerry M. Chow\>\"", ",", 
+       "\"\<Solano\>\"", ",", "\"\<J. Q. You\>\"", ",", "\"\<A. A. Clerk\>\"",
+        ",", "\"\<Aashish A. Clerk\>\"", ",", "\"\<DiVincenzo\>\"", ",", 
+       "\"\<Burkard\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"keywordsList", "=", 
+     RowBox[{"{", 
+      RowBox[{
+      "\"\<circuit QED\>\"", ",", "\"\<artificial atom\>\"", ",", 
+       "\"\<superconducting qubit\>\"", ",", 
+       "\"\<superconducting circuits\>\"", ",", "\"\<quantum circuits\>\"", 
+       ",", "\"\<Jaynes-Cummings\>\"", ",", "\"\<Bose-Hubbard\>\"", ",", 
+       "\"\<non-equilibrium phase\>\"", ",", "\"\<nonequilibrium phase\>\"", 
+       ",", "\"\<dissipative phase\>\"", ",", "\"\<dynamical phase\>\"", ",", 
+       "\"\<non-equilibrium steady state\>\"", ",", 
+       "\"\<nonequilibrium steady state\>\"", ",", "\"\<NESS\>\"", ",", " ", 
+       "\"\<non-equilibrium statistical mechanics\>\"", ",", 
+       "\"\<nonequilibrium statistical mechanics\>\"", ",", 
+       "\"\<open quantum systems\>\"", " ", ",", "\"\<open systems\>\"", ",", 
+       "\"\<matrix product operators\>\"", ",", 
+       "\"\<Matrix Product states\>\"", ",", "\"\<Keldysh\>\"", ",", 
+       "\"\<Dissipative Many-Body\>\"", ",", "\"\<non-Hermitian\>\"", ",", 
+       "\"\<Floquet\>\"", ",", "\"\<photon condensate\>\"", ",", 
+       "\"\<driven-dissipative\>\"", ",", "\"\<quantum simulators\>\"", ",", 
+       "\"\<quantum simulation\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"now", "=", 
+     RowBox[{"DateList", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"authorsListLen", "=", 
+     RowBox[{"Length", "[", "authorsList", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"keywordsListLen", "=", 
+     RowBox[{"Length", "[", "keywordsList", "]"}]}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"todayDate", "=", 
+     RowBox[{"DateString", "[", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
+       "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"outputHTML", "=", 
+     RowBox[{"targetPath", "<>", "todayDate", "<>", "\"\<_paper.html\>\""}]}],
+     ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{
+    "Functions", " ", "to", " ", "extract", " ", "data", " ", "from", " ", 
+     "XML"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"extractf", "[", 
+      RowBox[{"XMLInput_", ",", "source_"}], "]"}], ":=", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "itemList", ",", "titleList", ",", "linkList", ",", "mainList"}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"itemList", "=", 
+         RowBox[{"Cases", "[", 
+          RowBox[{"XMLInput", ",", 
+           RowBox[{"XMLElement", "[", 
+            RowBox[{"\"\<item\>\"", ",", "_", ",", "_"}], "]"}], ",", 
+           "Infinity"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"source", "\[Equal]", "\"\<arXiv\>\""}], ",", 
+          RowBox[{"Return", "[", 
+           RowBox[{"Map", "[", 
+            RowBox[{"itemExtractarXivf", ",", "itemList"}], "]"}], "]"}]}], 
+         "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"source", "\[Equal]", "\"\<Nature\>\""}], ",", 
+          RowBox[{"Return", "[", 
+           RowBox[{"Map", "[", 
+            RowBox[{"itemExtractNatf", ",", "itemList"}], "]"}], "]"}]}], 
+         "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Message", "[", 
+         RowBox[{"extractf", "::", "wrongsource"}], "]"}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "]"}], ";"}]}], "\[IndentingNewLine]", "]"}]}],
+     ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"extractf", "::", "wrongsource"}], "=", 
+     "\"\<Unidentified source. Supported source: \\\"arXiv\\\", \
+\\\"Nature\\\".\>\""}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"itemExtractarXivf", "[", "XMLItem_", "]"}], ":=", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"title", ",", "link", ",", "main"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"title", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{"\"\<title\>\"", ",", "_", ",", 
+               RowBox[{"{", "ptitle_", "}"}]}], "]"}], "\[Rule]", "ptitle"}], 
+            ",", "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"link", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{"\"\<link\>\"", ",", "_", ",", 
+               RowBox[{"{", "url_", "}"}]}], "]"}], "\[Rule]", "url"}], ",", 
+            "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"main", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{"\"\<description\>\"", ",", "_", ",", 
+               RowBox[{"{", "description_", "}"}]}], "]"}], "\[Rule]", 
+             "description"}], ",", "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", 
+         RowBox[{"{", 
+          RowBox[{"title", ",", "link", ",", "main"}], "}"}], "]"}]}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"itemExtractNatf", "[", "XMLItem_", "]"}], ":=", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "title", ",", "jtitle", ",", "link", ",", "abstract", ",", "author", 
+         ",", "main"}], "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"title", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{"\"\<title\>\"", ",", "_", ",", 
+               RowBox[{"{", "ptitle_", "}"}]}], "]"}], "\[Rule]", "ptitle"}], 
+            ",", "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"jtitle", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"_", ",", "\"\<publicationName\>\""}], "}"}], ",", 
+               "_", ",", 
+               RowBox[{"{", "journal_", "}"}]}], "]"}], "\[Rule]", 
+             "journal"}], ",", "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"link", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"_", ",", "\"\<url\>\""}], "}"}], ",", "_", ",", 
+               RowBox[{"{", "url_", "}"}]}], "]"}], "\[Rule]", "url"}], ",", 
+            "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"abstract", "=", 
+         RowBox[{"Cases", "[", 
+          RowBox[{"XMLItem", ",", 
+           RowBox[{
+            RowBox[{"XMLElement", "[", 
+             RowBox[{"\"\<description\>\"", ",", "_", ",", 
+              RowBox[{"{", "description_", "}"}]}], "]"}], "\[Rule]", 
+            "description"}], ",", "Infinity"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"author", "=", 
+         RowBox[{"StringRiffle", "[", 
+          RowBox[{
+           RowBox[{"Cases", "[", 
+            RowBox[{"XMLItem", ",", 
+             RowBox[{
+              RowBox[{"XMLElement", "[", 
+               RowBox[{
+                RowBox[{"{", 
+                 RowBox[{"_", ",", "\"\<creator\>\""}], "}"}], ",", "_", ",", 
+                
+                RowBox[{"{", "creator_", "}"}]}], "]"}], "\[Rule]", 
+              "creator"}], ",", "Infinity"}], "]"}], ",", "\"\<, \>\""}], 
+          "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"title", "=", 
+         RowBox[{
+         "title", "<>", "\"\< (\>\"", "<>", "jtitle", "<>", "\"\<)\>\""}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"main", "=", 
+         RowBox[{
+         "\"\<<p>Authors: \>\"", "<>", "author", "<>", "\"\<</p><p>\>\"", "<>",
+           "abstract", "<>", "\"\<</p>\>\""}]}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"Publication", " ", "date", " ", "check"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"pubDate", "=", 
+         RowBox[{"DateList", "[", 
+          RowBox[{"{", 
+           RowBox[{
+            RowBox[{
+             RowBox[{"Cases", "[", 
+              RowBox[{"XMLItem", ",", 
+               RowBox[{
+                RowBox[{"XMLElement", "[", 
+                 RowBox[{
+                  RowBox[{"{", 
+                   RowBox[{"_", ",", "\"\<publicationDate\>\""}], "}"}], ",", 
+                  "_", ",", 
+                  RowBox[{"{", "publicationDate_", "}"}]}], "]"}], "\[Rule]", 
+                "publicationDate"}], ",", "Infinity"}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
+             "}"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"diffDate", "=", 
+         RowBox[{"pubDate", "-", "now"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{
+           RowBox[{
+            RowBox[{
+             RowBox[{"diffDate", "[", 
+              RowBox[{"[", "1", "]"}], "]"}], "*", 
+             RowBox[{"(", 
+              RowBox[{"triggerDay", "+", "1"}], ")"}]}], "+", 
+            RowBox[{
+             RowBox[{"diffDate", "[", 
+              RowBox[{"[", "2", "]"}], "]"}], "*", 
+             RowBox[{"(", 
+              RowBox[{"triggerDay", "+", "1"}], ")"}]}], "+", 
+            RowBox[{"diffDate", "[", 
+             RowBox[{"[", "3", "]"}], "]"}]}], "\[GreaterEqual]", 
+           RowBox[{
+            RowBox[{"-", "1"}], "*", "triggerDay"}]}], ",", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", 
+            RowBox[{"title", ",", "link", ",", "main"}], "}"}], "]"}], ",", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", "}"}], "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]",
+       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Filtering", " ", "functions"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"filterf", "[", "objectInput_", "]"}], ":=", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "objectGo", ",", "objectGoLen", ",", "keepQList", ",", "KeepList"}], 
+        "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"objectGo", "=", "objectInput"}], ";", "\[IndentingNewLine]", 
+        
+        RowBox[{"objectGoLen", "=", 
+         RowBox[{"Length", "[", "objectGo", "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"keepQList", "=", 
+         RowBox[{"ParallelTable", "[", 
+          RowBox[{
+           RowBox[{"AnyTrue", "[", 
+            RowBox[{
+             RowBox[{"Join", "[", 
+              RowBox[{
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{"StringContainsQ", "[", 
+                  RowBox[{
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"objectGo", "[", 
+                    RowBox[{"[", "itemid", "]"}], "]"}], "]"}], ",", 
+                   RowBox[{"authorsList", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"j", ",", "1", ",", "authorsListLen"}], "}"}]}], 
+                "]"}], ",", 
+               RowBox[{"Table", "[", 
+                RowBox[{
+                 RowBox[{"StringContainsQ", "[", 
+                  RowBox[{
+                   RowBox[{"ToString", "[", 
+                    RowBox[{"objectGo", "[", 
+                    RowBox[{"[", "itemid", "]"}], "]"}], "]"}], ",", 
+                   RowBox[{"keywordsList", "[", 
+                    RowBox[{"[", "j", "]"}], "]"}]}], "]"}], ",", 
+                 RowBox[{"{", 
+                  RowBox[{"j", ",", "1", ",", "keywordsListLen"}], "}"}]}], 
+                "]"}]}], "]"}], ",", "TrueQ"}], "]"}], ",", 
+           RowBox[{"{", 
+            RowBox[{"itemid", ",", "1", ",", "objectGoLen"}], "}"}]}], 
+          "]"}]}], ";", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+        RowBox[{"KeepList", "=", 
+         RowBox[{"{", "}"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Do", "[", 
+         RowBox[{
+          RowBox[{"If", "[", 
+           RowBox[{
+            RowBox[{"keepQList", "[", 
+             RowBox[{"[", "itemid", "]"}], "]"}], ",", 
+            RowBox[{"AppendTo", "[", 
+             RowBox[{"KeepList", ",", "itemid"}], "]"}]}], "]"}], ",", 
+          RowBox[{"{", 
+           RowBox[{"itemid", ",", "1", ",", "objectGoLen"}], "}"}]}], "]"}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"objectGo", "=", 
+         RowBox[{"objectGo", "[", 
+          RowBox[{"[", "KeepList", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", "objectGo", "]"}], ";"}]}], 
+      "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{"(*", 
+    RowBox[{"Generate", " ", "HTML"}], "*)"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+    "header", "=", 
+     "\"\<<html><head><title>Filtered summary</title></head><body>\>\""}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ending", "=", "\"\<</body></html>\>\""}], ";"}], 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"HTMLGenf", "[", "data_", "]"}], ":=", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"mainText", "=", 
+         RowBox[{"Map", "[", 
+          RowBox[{"HTMLEntryf", ",", "data"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"mainText", "=", 
+         RowBox[{"StringJoin", "[", "mainText", "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", 
+         RowBox[{"header", "<>", "mainText", "<>", "ending"}], "]"}], ";"}]}],
+       "\[IndentingNewLine]", "]"}]}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"HTMLEntryf", "[", "item_", "]"}], ":=", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{"title", ",", "main", ",", "link"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"title", "=", 
+         RowBox[{"\"\<<p class=\\\"Section\\\"><font size=\\\"5\\\">\>\"", "<>", 
+          RowBox[{"item", "[", 
+           RowBox[{"[", "1", "]"}], "]"}], "<>", "\"\<</font></p>\>\""}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"main", "=", 
+         RowBox[{"item", "[", 
+          RowBox[{"[", "3", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"link", "=", 
+         RowBox[{
+         "\"\<<p class=\\\"Text\\\">\>\"", "<>", "\"\<<a href=\\\"\>\"", "<>", 
+          RowBox[{"item", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], "<>", " ", 
+          "\"\<\\\" target=\\\"_blank\\\">\>\"", "<>", 
+          RowBox[{"item", "[", 
+           RowBox[{"[", "2", "]"}], "]"}], "<>", "\"\<</a>\>\""}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"Return", "[", 
+         RowBox[{"title", "<>", "main", "<>", "link", "<>", "\"\<<hr>\>\""}], 
+         "]"}]}]}], "\[IndentingNewLine]", "]"}]}], ";"}]}]}]], "Input",
+ CellChangeTimes->{{3.704132078126544*^9, 3.7041320965080757`*^9}, {
+   3.704132196331218*^9, 3.70413224210841*^9}, 3.704132446907569*^9, {
+   3.704133144579802*^9, 3.7041331518274717`*^9}, {3.704133977697208*^9, 
+   3.70413398775432*^9}, {3.704134121508752*^9, 3.704134198351668*^9}, {
+   3.7041343350377283`*^9, 3.70413433580925*^9}, {3.704135305504402*^9, 
+   3.7041353320886517`*^9}, 3.704135459709303*^9, {3.704137064077045*^9, 
+   3.704137093632513*^9}, {3.704137138642809*^9, 3.704137138720089*^9}, {
+   3.7041371812362843`*^9, 3.7041372359782*^9}, 3.704137311593874*^9, {
+   3.704137606663651*^9, 3.704137621002263*^9}, {3.704139088639205*^9, 
+   3.70413909055062*^9}, {3.7041395774925423`*^9, 3.70413957869312*^9}, {
+   3.7042418492677956`*^9, 3.704242057701255*^9}, {3.7042423476661663`*^9, 
+   3.7042423641450233`*^9}, {3.704242469762267*^9, 3.7042426533186245`*^9}, {
+   3.704242953392187*^9, 3.704243039309408*^9}, 3.7042432523758554`*^9, {
+   3.7042433698890643`*^9, 3.7042434802648635`*^9}, {3.704243549548831*^9, 
+   3.7042436228719945`*^9}, {3.7042438601247225`*^9, 3.704243860648282*^9}, 
+   3.7042442472341366`*^9, 3.70424443599586*^9, {3.7042447420947285`*^9, 
+   3.70424475149436*^9}, {3.7042449857136374`*^9, 3.7042450064099092`*^9}, {
+   3.7042450502453485`*^9, 3.7042450504250994`*^9}, {3.7042452318239007`*^9, 
+   3.704245465689829*^9}, 3.7042455003324003`*^9, {3.704245533491884*^9, 
+   3.704245558981035*^9}, {3.7042455910603743`*^9, 3.704245602834844*^9}, {
+   3.704245636946072*^9, 3.70424563725026*^9}, 3.70424567906909*^9, 
+   3.7042458012200937`*^9, {3.704245861994305*^9, 3.704245948776195*^9}, {
+   3.7042460088917036`*^9, 3.704246029795474*^9}, {3.704246068206764*^9, 
+   3.704246068325722*^9}, 3.7042461299951525`*^9, {3.7042461654177356`*^9, 
+   3.704246229406784*^9}, 3.7043709153916206`*^9}],
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"arXivQPhy", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://export.arxiv.org/rss/quant-ph?version=2.0\>\"", ",", 
+     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"arXivNano", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://export.arxiv.org/rss/cond-mat.mes-hall?version=2.0\>\"", ",", 
+     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"arXivList", "=", 
+   RowBox[{"{", 
+    RowBox[{"arXivQPhy", ",", "arXivNano"}], "}"}]}], ";", 
+  RowBox[{"arXivListLen", "=", 
+   RowBox[{"Length", "[", "arXivList", "]"}]}], ";"}], "\[IndentingNewLine]", 
+
+ RowBox[{
+  RowBox[{
+   RowBox[{"arXivList", "=", 
+    RowBox[{"Union", "[", 
+     RowBox[{"filterf", "[", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"extractf", "[", 
+           RowBox[{
+            RowBox[{"arXivList", "[", 
+             RowBox[{"[", "j", "]"}], "]"}], ",", "\"\<arXiv\>\""}], "]"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "arXivListLen"}], "}"}]}], "]"}], ",", 
+        "1"}], "]"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Nat", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.nature.com/nature/rss/aop?format=xml\>\"", ",", 
+     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NatPhys", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.nature.com/nphys/rss/aop?format=xml\>\"", ",", 
+     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NatPhoton", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.nature.com/nphoton/rss/aop?format=xml\>\"", ",", 
+     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NatMat", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.nature.com/nmat/rss/aop?format=xml\>\"", ",", 
+     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"NatList", "=", 
+   RowBox[{"{", 
+    RowBox[{"Nat", ",", "NatPhys", ",", "NatPhoton", ",", "NatMat"}], "}"}]}],
+   ";", 
+  RowBox[{"NatListLen", "=", 
+   RowBox[{"Length", "[", "NatList", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"NatList", "=", 
+    RowBox[{"Union", "[", 
+     RowBox[{"filterf", "[", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"extractf", "[", 
+           RowBox[{
+            RowBox[{"NatList", "[", 
+             RowBox[{"[", "j", "]"}], "]"}], ",", "\"\<Nature\>\""}], "]"}], 
+          ",", 
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "NatListLen"}], "}"}]}], "]"}], ",", 
+        "1"}], "]"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"Export", "[", 
+   RowBox[{"outputHTML", ",", 
+    RowBox[{"HTMLGenf", "[", 
+     RowBox[{"Join", "[", 
+      RowBox[{"arXivList", ",", "NatList"}], "]"}], "]"}], ",", 
+    "\"\<Text\>\""}], "]"}], ";"}]}], "Input",
+ CellChangeTimes->{{3.704243642659766*^9, 3.7042437995308113`*^9}, 
+   3.704244114839632*^9, {3.7042441465921764`*^9, 3.704244162178211*^9}, {
+   3.704245704567705*^9, 3.7042457310211287`*^9}, {3.704246183114011*^9, 
+   3.7042461833485985`*^9}, {3.704246310704297*^9, 3.7042463149765606`*^9}}]
+},
+WindowSize->{1536, 781},
+WindowMargins->{{-8, Automatic}, {Automatic, -8}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[400, 13, 20190, 452, 1570, "Input"],
+Cell[20593, 467, 3466, 97, 259, "Input"]
+}
+]
+*)
+
