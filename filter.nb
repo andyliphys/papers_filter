@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     24507,        587]
-NotebookOptionsPosition[     24063,        566]
-NotebookOutlinePosition[     24406,        581]
-CellTagsIndexPosition[     24363,        578]
+NotebookDataLength[     25164,        604]
+NotebookOptionsPosition[     24676,        582]
+NotebookOutlinePosition[     25024,        597]
+CellTagsIndexPosition[     24981,        594]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -330,7 +330,7 @@ Cell[BoxData[
          RowBox[{"Length", "[", "objectGo", "]"}]}], ";", 
         "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"keepQList", "=", 
-         RowBox[{"ParallelTable", "[", 
+         RowBox[{"Table", "[", 
           RowBox[{
            RowBox[{"AnyTrue", "[", 
             RowBox[{
@@ -463,20 +463,31 @@ Cell[BoxData[
    3.7042458012200937`*^9, {3.704245861994305*^9, 3.704245948776195*^9}, {
    3.7042460088917036`*^9, 3.704246029795474*^9}, {3.704246068206764*^9, 
    3.704246068325722*^9}, 3.7042461299951525`*^9, {3.7042461654177356`*^9, 
-   3.704246229406784*^9}, 3.7043709153916206`*^9}],
+   3.704246229406784*^9}, 3.7043709153916206`*^9, {3.7046644978779445`*^9, 
+   3.704664510487571*^9}, {3.7046645530495157`*^9, 3.7046645557564616`*^9}, {
+   3.704665569195587*^9, 3.704665570566543*^9}}],
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{"arXivQPhy", "=", 
-   RowBox[{"Import", "[", 
-    RowBox[{
-    "\"\<http://export.arxiv.org/rss/quant-ph?version=2.0\>\"", ",", 
-     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"arXivQPhy", "=", 
+    RowBox[{"Import", "[", 
+     RowBox[{
+     "\"\<http://export.arxiv.org/rss/quant-ph?version=2.0\>\"", ",", 
+      "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+    RowBox[{"arXivNano", "=", 
+     RowBox[{"Import", "[", 
+      RowBox[{
+      "\"\<http://export.arxiv.org/rss/cond-mat.mes-hall?version=2.0\>\"", 
+       ",", "\"\<XML\>\""}], "]"}]}], ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"arXivNano", "=", 
    RowBox[{"Import", "[", 
     RowBox[{
-    "\"\<http://export.arxiv.org/rss/cond-mat.mes-hall?version=2.0\>\"", ",", 
+    "\"\<http://export.arxiv.org/rss/cond-mat?version=2.0\>\"", ",", 
      "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"arXivList", "=", 
@@ -562,11 +573,16 @@ Cell[BoxData[{
  CellChangeTimes->{{3.704243642659766*^9, 3.7042437995308113`*^9}, 
    3.704244114839632*^9, {3.7042441465921764`*^9, 3.704244162178211*^9}, {
    3.704245704567705*^9, 3.7042457310211287`*^9}, {3.704246183114011*^9, 
-   3.7042461833485985`*^9}, {3.704246310704297*^9, 3.7042463149765606`*^9}}]
+   3.7042461833485985`*^9}, {3.704246310704297*^9, 3.7042463149765606`*^9}, {
+   3.704643440702338*^9, 3.704643449188125*^9}, {3.704664801731126*^9, 
+   3.7046648020823965`*^9}}],
+
+Cell[BoxData[""], "Input",
+ CellChangeTimes->{{3.7046434207973013`*^9, 3.704643439620502*^9}}]
 },
 WindowSize->{1536, 781},
 WindowMargins->{{-8, Automatic}, {Automatic, -8}},
-FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -580,8 +596,9 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[400, 13, 20190, 452, 1570, "Input"],
-Cell[20593, 467, 3466, 97, 259, "Input"]
+Cell[400, 13, 20334, 454, 1570, "Input"],
+Cell[20737, 469, 3838, 108, 278, "Input"],
+Cell[24578, 579, 94, 1, 30, "Input"]
 }
 ]
 *)
