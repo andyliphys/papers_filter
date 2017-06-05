@@ -3,34 +3,54 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     25164,        604]
-NotebookOptionsPosition[     24676,        582]
-NotebookOutlinePosition[     25024,        597]
-CellTagsIndexPosition[     24981,        594]
+NotebookDataLength[     32536,        781]
+NotebookOptionsPosition[     32091,        760]
+NotebookOutlinePosition[     32434,        775]
+CellTagsIndexPosition[     32391,        772]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
 Notebook[{
 Cell[BoxData[
  RowBox[{
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"targetPath", "=", 
-     RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], "*)"}], 
-  "\[IndentingNewLine]", 
+  RowBox[{"(*", "Setting", "*)"}], "\[IndentingNewLine]", 
   RowBox[{
    RowBox[{
-    RowBox[{"targetPath", "=", "\"\</home/ali/Dropbox/Server/papers/\>\""}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"triggerDay", "=", "1"}], ";"}], 
+    RowBox[{"targetPath", "=", 
+     RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], " ", 
    RowBox[{"(*", 
     RowBox[{
-    "Keep", " ", "the", " ", "nature", " ", "output", " ", "for", " ", "the", 
-     " ", "defined", " ", "number", " ", "of", " ", "days", " ", "between", 
-     " ", "current", " ", "and", " ", "publication", " ", "date"}], "*)"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    "Directory", " ", "to", " ", "store", " ", "the", " ", "output", " ", 
+     "HTML"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{
+    RowBox[{"todayDate", "=", 
+     RowBox[{"DateString", "[", 
+      RowBox[{"{", 
+       RowBox[{"\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
+       "}"}], "]"}]}], ";", 
+    RowBox[{"outputHTML", "=", 
+     RowBox[{"targetPath", "<>", "todayDate", "<>", "\"\<_paper.html\>\""}]}],
+     ";", 
+    RowBox[{"(*", 
+     RowBox[{"output", " ", "HTML", " ", "filename"}], "*)"}], 
+    "\[IndentingNewLine]", 
+    RowBox[{"triggerDayNat", "=", "1"}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "Keep", " ", "the", " ", "Nature", " ", "output", " ", "iff", " ", 
+       "the", " ", "different", " ", "between", " ", "current", " ", "and", 
+       " ", "publication", " ", "date"}], " ", "\[LessEqual]", " ", 
+      "triggerDayNat"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"triggerDayPR", "=", "1"}], ";", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+      "Keep", " ", "the", " ", "PR", " ", "output", " ", "iff", " ", "the", 
+       " ", "different", " ", "between", " ", "current", " ", "and", " ", 
+       "publication", " ", "date"}], " ", "\[LessEqual]", " ", 
+      "triggerDayPR"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    
     RowBox[{"authorsList", "=", 
      RowBox[{"{", 
       RowBox[{
@@ -76,6 +96,7 @@ Cell[BoxData[
        "\"\<driven-dissipative\>\"", ",", "\"\<quantum simulators\>\"", ",", 
        "\"\<quantum simulation\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
+   RowBox[{"(*", "Parameters", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"now", "=", 
      RowBox[{"DateList", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
@@ -86,17 +107,7 @@ Cell[BoxData[
    RowBox[{
     RowBox[{"keywordsListLen", "=", 
      RowBox[{"Length", "[", "keywordsList", "]"}]}], ";"}], 
-   "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"todayDate", "=", 
-     RowBox[{"DateString", "[", 
-      RowBox[{"{", 
-       RowBox[{"\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
-       "}"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"outputHTML", "=", 
-     RowBox[{"targetPath", "<>", "todayDate", "<>", "\"\<_paper.html\>\""}]}],
-     ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
     "Functions", " ", "to", " ", "extract", " ", "data", " ", "from", " ", 
@@ -132,6 +143,13 @@ Cell[BoxData[
            RowBox[{"Map", "[", 
             RowBox[{"itemExtractNatf", ",", "itemList"}], "]"}], "]"}]}], 
          "]"}], ";", "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"source", "\[Equal]", "\"\<PR\>\""}], ",", 
+          RowBox[{"Return", "[", 
+           RowBox[{"Map", "[", 
+            RowBox[{"itemExtractPRf", ",", "itemList"}], "]"}], "]"}]}], 
+         "]"}], ";", "\[IndentingNewLine]", 
         RowBox[{"Message", "[", 
          RowBox[{"extractf", "::", "wrongsource"}], "]"}], ";", 
         "\[IndentingNewLine]", 
@@ -141,7 +159,8 @@ Cell[BoxData[
     RowBox[{
      RowBox[{"extractf", "::", "wrongsource"}], "=", 
      "\"\<Unidentified source. Supported source: \\\"arXiv\\\", \
-\\\"Nature\\\".\>\""}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+\\\"Nature\\\", \\\"PR\\\".\>\""}], ";"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
      RowBox[{"itemExtractarXivf", "[", "XMLItem_", "]"}], ":=", 
@@ -194,7 +213,8 @@ Cell[BoxData[
        RowBox[{"{", 
         RowBox[{
         "title", ",", "jtitle", ",", "link", ",", "abstract", ",", "author", 
-         ",", "main"}], "}"}], ",", "\[IndentingNewLine]", 
+         ",", "main", ",", "pubDate", ",", "diffDay"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
        RowBox[{
         RowBox[{"title", "=", 
          RowBox[{
@@ -286,26 +306,118 @@ Cell[BoxData[
              RowBox[{
              "\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
              "}"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
-        RowBox[{"diffDate", "=", 
-         RowBox[{"pubDate", "-", "now"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"diffDay", "=", 
+         RowBox[{"DayCount", "[", 
+          RowBox[{"pubDate", ",", "now"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
         RowBox[{"If", "[", 
          RowBox[{
-          RowBox[{
+          RowBox[{"diffDay", "\[LessEqual]", "triggerDayNat"}], ",", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", 
+            RowBox[{"title", ",", "link", ",", "main"}], "}"}], "]"}], ",", 
+          RowBox[{"Return", "[", 
+           RowBox[{"{", "}"}], "]"}]}], "]"}], ";"}]}], "\[IndentingNewLine]",
+       "]"}]}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{
+     RowBox[{"itemExtractPRf", "[", "XMLItem_", "]"}], ":=", 
+     RowBox[{"Block", "[", 
+      RowBox[{
+       RowBox[{"{", 
+        RowBox[{
+        "title", ",", "jtitle", ",", "link", ",", "abstract", ",", "main", 
+         ",", "pubDate", ",", "diffDay"}], "}"}], ",", "\[IndentingNewLine]", 
+       
+       RowBox[{
+        RowBox[{"title", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{"\"\<title\>\"", ",", "_", ",", 
+               RowBox[{"{", "ptitle_", "}"}]}], "]"}], "\[Rule]", "ptitle"}], 
+            ",", "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"jtitle", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"_", ",", "\"\<publicationName\>\""}], "}"}], ",", 
+               "_", ",", 
+               RowBox[{"{", "journal_", "}"}]}], "]"}], "\[Rule]", 
+             "journal"}], ",", "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"link", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{
+               RowBox[{"{", 
+                RowBox[{"_", ",", "\"\<url\>\""}], "}"}], ",", "_", ",", 
+               RowBox[{"{", "url_", "}"}]}], "]"}], "\[Rule]", "url"}], ",", 
+            "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"abstract", "=", 
+         RowBox[{
+          RowBox[{"Cases", "[", 
+           RowBox[{"XMLItem", ",", 
+            RowBox[{
+             RowBox[{"XMLElement", "[", 
+              RowBox[{"\"\<description\>\"", ",", "_", ",", 
+               RowBox[{"{", "description_", "}"}]}], "]"}], "\[Rule]", 
+             "description"}], ",", "Infinity"}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"title", "=", 
+         RowBox[{
+         "title", "<>", "\"\< (\>\"", "<>", "jtitle", "<>", "\"\<)\>\""}]}], 
+        ";", "\[IndentingNewLine]", 
+        RowBox[{"main", "=", "abstract"}], ";", "\[IndentingNewLine]", 
+        "\[IndentingNewLine]", 
+        RowBox[{"(*", 
+         RowBox[{"Publication", " ", "date", " ", "check"}], "*)"}], 
+        "\[IndentingNewLine]", 
+        RowBox[{"pubDate", "=", 
+         RowBox[{"DateList", "[", 
+          RowBox[{"{", 
            RowBox[{
             RowBox[{
-             RowBox[{"diffDate", "[", 
-              RowBox[{"[", "1", "]"}], "]"}], "*", 
-             RowBox[{"(", 
-              RowBox[{"triggerDay", "+", "1"}], ")"}]}], "+", 
-            RowBox[{
-             RowBox[{"diffDate", "[", 
-              RowBox[{"[", "2", "]"}], "]"}], "*", 
-             RowBox[{"(", 
-              RowBox[{"triggerDay", "+", "1"}], ")"}]}], "+", 
-            RowBox[{"diffDate", "[", 
-             RowBox[{"[", "3", "]"}], "]"}]}], "\[GreaterEqual]", 
-           RowBox[{
-            RowBox[{"-", "1"}], "*", "triggerDay"}]}], ",", 
+             RowBox[{"StringCases", "[", 
+              RowBox[{
+               RowBox[{
+                RowBox[{"Cases", "[", 
+                 RowBox[{"XMLItem", ",", 
+                  RowBox[{
+                   RowBox[{"XMLElement", "[", 
+                    RowBox[{
+                    RowBox[{"{", 
+                    RowBox[{"_", ",", "\"\<publicationDate\>\""}], "}"}], ",",
+                     "_", ",", 
+                    RowBox[{"{", "pDateF_", "}"}]}], "]"}], "\[Rule]", 
+                   "pDateF"}], ",", "Infinity"}], "]"}], "[", 
+                RowBox[{"[", "1", "]"}], "]"}], ",", 
+               RowBox[{
+                RowBox[{"pDateS__", "~~", "\"\<T\>\"", "~~", "__"}], 
+                "\[Rule]", "pDateS"}]}], "]"}], "[", 
+             RowBox[{"[", "1", "]"}], "]"}], ",", 
+            RowBox[{"{", 
+             RowBox[{
+             "\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
+             "}"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
+        RowBox[{"diffDay", "=", 
+         RowBox[{"DayCount", "[", 
+          RowBox[{"pubDate", ",", "now"}], "]"}]}], ";", 
+        "\[IndentingNewLine]", 
+        RowBox[{"If", "[", 
+         RowBox[{
+          RowBox[{"diffDay", "\[LessEqual]", "triggerDayPR"}], ",", 
           RowBox[{"Return", "[", 
            RowBox[{"{", 
             RowBox[{"title", ",", "link", ",", "main"}], "}"}], "]"}], ",", 
@@ -386,19 +498,19 @@ Cell[BoxData[
     RowBox[{"Generate", " ", "HTML"}], "*)"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{
-    "header", "=", 
-     "\"\<<html><head><title>Filtered summary</title></head><body>\>\""}], 
-    ";"}], "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"ending", "=", "\"\<</body></html>\>\""}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{
      RowBox[{"HTMLGenf", "[", "data_", "]"}], ":=", 
      RowBox[{"Block", "[", 
       RowBox[{
-       RowBox[{"{", "}"}], ",", "\[IndentingNewLine]", 
+       RowBox[{"{", 
+        RowBox[{"header", ",", "ending", ",", "mainText"}], "}"}], ",", 
+       "\[IndentingNewLine]", 
        RowBox[{
+        RowBox[{
+        "header", "=", 
+         "\"\<<html><head><title>Filtered summary</title></head><body>\>\""}],
+         ";", "\[IndentingNewLine]", 
+        RowBox[{"ending", "=", "\"\<</body></html>\>\""}], ";", 
+        "\[IndentingNewLine]", 
         RowBox[{"mainText", "=", 
          RowBox[{"Map", "[", 
           RowBox[{"HTMLEntryf", ",", "data"}], "]"}]}], ";", 
@@ -465,26 +577,26 @@ Cell[BoxData[
    3.704246068325722*^9}, 3.7042461299951525`*^9, {3.7042461654177356`*^9, 
    3.704246229406784*^9}, 3.7043709153916206`*^9, {3.7046644978779445`*^9, 
    3.704664510487571*^9}, {3.7046645530495157`*^9, 3.7046645557564616`*^9}, {
-   3.704665569195587*^9, 3.704665570566543*^9}}],
+   3.704665569195587*^9, 3.704665570566543*^9}, {3.705616964818695*^9, 
+   3.7056169705132537`*^9}, {3.705617658043335*^9, 3.705617673812128*^9}, {
+   3.7056177287966595`*^9, 3.7056177300012207`*^9}, {3.7056178009844294`*^9, 
+   3.7056178161054955`*^9}, {3.70561791469014*^9, 3.7056181444268303`*^9}, {
+   3.705618299822437*^9, 3.70561830391575*^9}, {3.705618569733082*^9, 
+   3.705618586813003*^9}, {3.7056196804468064`*^9, 3.705619722030881*^9}, {
+   3.7056198522980323`*^9, 3.705619852843373*^9}, {3.7056202534378643`*^9, 
+   3.705620253597687*^9}, {3.7056203625797997`*^9, 3.7056203698554754`*^9}, {
+   3.705621451744485*^9, 3.7056214679904485`*^9}, {3.705621660269805*^9, 
+   3.705621667228467*^9}}],
 
 Cell[BoxData[{
  RowBox[{
-  RowBox[{
-   RowBox[{"arXivQPhy", "=", 
-    RowBox[{"Import", "[", 
-     RowBox[{
-     "\"\<http://export.arxiv.org/rss/quant-ph?version=2.0\>\"", ",", 
-      "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
-  RowBox[{"(*", 
-   RowBox[{
-    RowBox[{"arXivNano", "=", 
-     RowBox[{"Import", "[", 
-      RowBox[{
-      "\"\<http://export.arxiv.org/rss/cond-mat.mes-hall?version=2.0\>\"", 
-       ",", "\"\<XML\>\""}], "]"}]}], ";"}], 
-   "*)"}]}], "\[IndentingNewLine]", 
+  RowBox[{"arXivQPhy", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://export.arxiv.org/rss/quant-ph?version=2.0\>\"", ",", 
+     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
-  RowBox[{"arXivNano", "=", 
+  RowBox[{"arXivCond", "=", 
    RowBox[{"Import", "[", 
     RowBox[{
     "\"\<http://export.arxiv.org/rss/cond-mat?version=2.0\>\"", ",", 
@@ -492,7 +604,7 @@ Cell[BoxData[{
  RowBox[{
   RowBox[{"arXivList", "=", 
    RowBox[{"{", 
-    RowBox[{"arXivQPhy", ",", "arXivNano"}], "}"}]}], ";", 
+    RowBox[{"arXivQPhy", ",", "arXivCond"}], "}"}]}], ";", 
   RowBox[{"arXivListLen", "=", 
    RowBox[{"Length", "[", "arXivList", "]"}]}], ";"}], "\[IndentingNewLine]", 
 
@@ -564,25 +676,91 @@ Cell[BoxData[{
         "1"}], "]"}], "]"}], "]"}]}], ";"}], 
   "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
  RowBox[{
+  RowBox[{"PRL", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.aps.org/rss/recent/prl.xml\>\"", ",", "\"\<XML\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PRX", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.aps.org/rss/recent/prx.xml\>\"", ",", "\"\<XML\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"RMP", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.aps.org/rss/recent/rmp.xml\>\"", ",", "\"\<XML\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PRApp", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.aps.org/rss/recent/prapplied.xml\>\"", ",", 
+     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PRA", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.aps.org/rss/recent/pra.xml\>\"", ",", "\"\<XML\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PRB", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.aps.org/rss/recent/prb.xml\>\"", ",", "\"\<XML\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PRE", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{
+    "\"\<http://feeds.aps.org/rss/recent/pre.xml\>\"", ",", "\"\<XML\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"PRList", "=", 
+   RowBox[{"{", 
+    RowBox[{
+    "PRL", ",", "PRX", ",", "RMP", ",", "PRApp", ",", "PRA", ",", "PRB", ",", 
+     "PRE"}], "}"}]}], ";", 
+  RowBox[{"PRListLen", "=", 
+   RowBox[{"Length", "[", "PRList", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+   RowBox[{"PRList", "=", 
+    RowBox[{"Union", "[", 
+     RowBox[{"filterf", "[", 
+      RowBox[{"Flatten", "[", 
+       RowBox[{
+        RowBox[{"Table", "[", 
+         RowBox[{
+          RowBox[{"extractf", "[", 
+           RowBox[{
+            RowBox[{"PRList", "[", 
+             RowBox[{"[", "j", "]"}], "]"}], ",", "\"\<PR\>\""}], "]"}], ",", 
+          
+          RowBox[{"{", 
+           RowBox[{"j", ",", "1", ",", "PRListLen"}], "}"}]}], "]"}], ",", 
+        "1"}], "]"}], "]"}], "]"}]}], ";"}], 
+  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+ RowBox[{
   RowBox[{"Export", "[", 
    RowBox[{"outputHTML", ",", 
     RowBox[{"HTMLGenf", "[", 
      RowBox[{"Join", "[", 
-      RowBox[{"arXivList", ",", "NatList"}], "]"}], "]"}], ",", 
-    "\"\<Text\>\""}], "]"}], ";"}]}], "Input",
+      RowBox[{"arXivList", ",", "PRList", ",", "NatList"}], "]"}], "]"}], 
+    ",", "\"\<Text\>\""}], "]"}], ";"}]}], "Input",
  CellChangeTimes->{{3.704243642659766*^9, 3.7042437995308113`*^9}, 
    3.704244114839632*^9, {3.7042441465921764`*^9, 3.704244162178211*^9}, {
    3.704245704567705*^9, 3.7042457310211287`*^9}, {3.704246183114011*^9, 
    3.7042461833485985`*^9}, {3.704246310704297*^9, 3.7042463149765606`*^9}, {
    3.704643440702338*^9, 3.704643449188125*^9}, {3.704664801731126*^9, 
-   3.7046648020823965`*^9}}],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.7046434207973013`*^9, 3.704643439620502*^9}}]
+   3.7046648020823965`*^9}, {3.705617823196526*^9, 3.7056178338443146`*^9}, {
+   3.70562007024331*^9, 3.705620077951931*^9}}]
 },
 WindowSize->{1536, 781},
 WindowMargins->{{-8, Automatic}, {Automatic, -8}},
-FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (September 21, 2016)",
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -596,9 +774,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[400, 13, 20334, 454, 1570, "Input"],
-Cell[20737, 469, 3838, 108, 278, "Input"],
-Cell[24578, 579, 94, 1, 30, "Input"]
+Cell[400, 13, 25780, 575, 1855, "Input"],
+Cell[26183, 590, 5904, 168, 449, "Input"]
 }
 ]
 *)
