@@ -1,1 +1,0 @@
-/usr/local/bin/Wolfram_Mathematica/11.0/math -script "/home/ali/Dropbox/Server/papers/app/filter.m"
