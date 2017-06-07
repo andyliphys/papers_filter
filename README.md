@@ -1,4 +1,7 @@
 # papers_filter
+v1.03 (07-June-2017)
+Minor bug regarding day counting fixed.
+
 v1.02 (04-June-2017)
 Add filtering for PR papers.
 Minor bugs fixed.

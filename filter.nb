@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     32536,        781]
-NotebookOptionsPosition[     32091,        760]
-NotebookOutlinePosition[     32434,        775]
-CellTagsIndexPosition[     32391,        772]
+NotebookDataLength[     33111,        790]
+NotebookOptionsPosition[     32649,        768]
+NotebookOutlinePosition[     33009,        784]
+CellTagsIndexPosition[     32966,        781]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -17,12 +17,11 @@ Cell[BoxData[
   RowBox[{
    RowBox[{
     RowBox[{"targetPath", "=", 
-     RowBox[{"NotebookDirectory", "[", "]"}]}], ";"}], " ", 
-   RowBox[{"(*", 
-    RowBox[{
-    "Directory", " ", "to", " ", "store", " ", "the", " ", "output", " ", 
-     "HTML"}], "*)"}], "\[IndentingNewLine]", 
-   RowBox[{
+     RowBox[{"NotebookDirectory", "[", "]"}]}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{
+     "Directory", " ", "to", " ", "store", " ", "the", " ", "output", " ", 
+      "HTML"}], "*)"}], "\[IndentingNewLine]", 
     RowBox[{"todayDate", "=", 
      RowBox[{"DateString", "[", 
       RowBox[{"{", 
@@ -33,24 +32,27 @@ Cell[BoxData[
      ";", 
     RowBox[{"(*", 
      RowBox[{"output", " ", "HTML", " ", "filename"}], "*)"}], 
+    "\[IndentingNewLine]", "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{
+       RowBox[{
+        RowBox[{
+        "Keep", " ", "the", " ", "output", " ", "iff", " ", "the", " ", 
+         "different", " ", "between", " ", "current", " ", "time", " ", "and",
+          " ", "publication", " ", "date"}], " ", "\[LessEqual]", " ", 
+        "triggerDayNat"}], ";", " ", 
+       RowBox[{"fractional", " ", "no"}]}], ",", " ", 
+      RowBox[{"e", ".", "g", ".", " ", "1.5"}], ",", " ", 
+      RowBox[{"is", " ", "allowed"}]}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"triggerDayNat", "=", "1.5"}], ";", " ", 
+    RowBox[{"(*", 
+     RowBox[{"for", " ", "Nature", " ", "series"}], "*)"}], 
     "\[IndentingNewLine]", 
-    RowBox[{"triggerDayNat", "=", "1"}], ";", 
+    RowBox[{"triggerDayPR", "=", "1.5"}], ";", " ", 
     RowBox[{"(*", 
-     RowBox[{
-      RowBox[{
-      "Keep", " ", "the", " ", "Nature", " ", "output", " ", "iff", " ", 
-       "the", " ", "different", " ", "between", " ", "current", " ", "and", 
-       " ", "publication", " ", "date"}], " ", "\[LessEqual]", " ", 
-      "triggerDayNat"}], "*)"}], "\[IndentingNewLine]", 
-    RowBox[{"triggerDayPR", "=", "1"}], ";", 
-    RowBox[{"(*", 
-     RowBox[{
-      RowBox[{
-      "Keep", " ", "the", " ", "PR", " ", "output", " ", "iff", " ", "the", 
-       " ", "different", " ", "between", " ", "current", " ", "and", " ", 
-       "publication", " ", "date"}], " ", "\[LessEqual]", " ", 
-      "triggerDayPR"}], "*)"}], "\[IndentingNewLine]", "\[IndentingNewLine]", 
-    
+     RowBox[{"for", " ", "PR", " ", "series"}], "*)"}], "\[IndentingNewLine]",
+     "\[IndentingNewLine]", 
     RowBox[{"authorsList", "=", 
      RowBox[{"{", 
       RowBox[{
@@ -307,9 +309,10 @@ Cell[BoxData[
              "\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
              "}"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"diffDay", "=", 
-         RowBox[{"DayCount", "[", 
-          RowBox[{"pubDate", ",", "now"}], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"DateDifference", "[", 
+           RowBox[{"pubDate", ",", "now", ",", "\"\<Day\>\""}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"If", "[", 
          RowBox[{
           RowBox[{"diffDay", "\[LessEqual]", "triggerDayNat"}], ",", 
@@ -412,9 +415,10 @@ Cell[BoxData[
              "\"\<Year\>\"", ",", "\"\<Month\>\"", ",", "\"\<Day\>\""}], 
              "}"}]}], "}"}], "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"diffDay", "=", 
-         RowBox[{"DayCount", "[", 
-          RowBox[{"pubDate", ",", "now"}], "]"}]}], ";", 
-        "\[IndentingNewLine]", 
+         RowBox[{
+          RowBox[{"DateDifference", "[", 
+           RowBox[{"pubDate", ",", "now", ",", "\"\<Day\>\""}], "]"}], "[", 
+          RowBox[{"[", "1", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
         RowBox[{"If", "[", 
          RowBox[{
           RowBox[{"diffDay", "\[LessEqual]", "triggerDayPR"}], ",", 
@@ -585,8 +589,11 @@ Cell[BoxData[
    3.705618586813003*^9}, {3.7056196804468064`*^9, 3.705619722030881*^9}, {
    3.7056198522980323`*^9, 3.705619852843373*^9}, {3.7056202534378643`*^9, 
    3.705620253597687*^9}, {3.7056203625797997`*^9, 3.7056203698554754`*^9}, {
-   3.705621451744485*^9, 3.7056214679904485`*^9}, {3.705621660269805*^9, 
-   3.705621667228467*^9}}],
+   3.705621451744485*^9, 3.7056214679904485`*^9}, 3.705621886405749*^9, {
+   3.7058554933176117`*^9, 3.705855495596858*^9}, {3.705856073056472*^9, 
+   3.705856238342518*^9}, {3.705856303706759*^9, 3.705856329445891*^9}, {
+   3.705856414542287*^9, 3.705856416561863*^9}, {3.705856608507318*^9, 
+   3.705856610401478*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -756,11 +763,13 @@ Cell[BoxData[{
    3.7042461833485985`*^9}, {3.704246310704297*^9, 3.7042463149765606`*^9}, {
    3.704643440702338*^9, 3.704643449188125*^9}, {3.704664801731126*^9, 
    3.7046648020823965`*^9}, {3.705617823196526*^9, 3.7056178338443146`*^9}, {
-   3.70562007024331*^9, 3.705620077951931*^9}}]
+   3.70562007024331*^9, 3.705620077951931*^9}, {3.705621881343169*^9, 
+   3.705621885168758*^9}}]
 },
 WindowSize->{1536, 781},
 WindowMargins->{{-8, Automatic}, {Automatic, -8}},
-FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
+FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+21, 2016)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -774,8 +783,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[400, 13, 25780, 575, 1855, "Input"],
-Cell[26183, 590, 5904, 168, 449, "Input"]
+Cell[400, 13, 26288, 582, 2112, "Input"],
+Cell[26691, 597, 5954, 169, 495, "Input"]
 }
 ]
 *)
