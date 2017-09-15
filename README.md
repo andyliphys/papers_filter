@@ -1,4 +1,7 @@
 # papers_filter
+v1.04 (15-Sept-2017)
+Fixed minor bug regarding the RSS source of nature journals.
+
 v1.03 (07-June-2017)
 Minor bug regarding day counting fixed.
 

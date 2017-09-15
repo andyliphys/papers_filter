@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     33111,        790]
-NotebookOptionsPosition[     32649,        768]
-NotebookOutlinePosition[     33009,        784]
-CellTagsIndexPosition[     32966,        781]
+NotebookDataLength[     33753,        801]
+NotebookOptionsPosition[     33309,        780]
+NotebookOutlinePosition[     33651,        795]
+CellTagsIndexPosition[     33608,        792]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -22,6 +22,10 @@ Cell[BoxData[
      RowBox[{
      "Directory", " ", "to", " ", "store", " ", "the", " ", "output", " ", 
       "HTML"}], "*)"}], "\[IndentingNewLine]", 
+    RowBox[{"(*", 
+     RowBox[{
+      RowBox[{"targetPath", "=", "\"\</home/ali/Dropbox/Server/papers/\>\""}],
+       ";"}], "*)"}], "\[IndentingNewLine]", 
     RowBox[{"todayDate", "=", 
      RowBox[{"DateString", "[", 
       RowBox[{"{", 
@@ -75,7 +79,9 @@ Cell[BoxData[
        "\"\<C. M. Wilson\>\"", ",", "\"\<Jerry M. Chow\>\"", ",", 
        "\"\<Solano\>\"", ",", "\"\<J. Q. You\>\"", ",", "\"\<A. A. Clerk\>\"",
         ",", "\"\<Aashish A. Clerk\>\"", ",", "\"\<DiVincenzo\>\"", ",", 
-       "\"\<Burkard\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+       "\"\<Burkard\>\"", ",", "\"\<Kitaev\>\"", ",", "\"\<Preskill\>\"", 
+       ",", "\"\<Rigetti\>\"", ",", "\"\<Plenio\>\""}], "}"}]}], ";"}], "\n", 
+   
    RowBox[{
     RowBox[{"keywordsList", "=", 
      RowBox[{"{", 
@@ -87,16 +93,18 @@ Cell[BoxData[
        "\"\<non-equilibrium phase\>\"", ",", "\"\<nonequilibrium phase\>\"", 
        ",", "\"\<dissipative phase\>\"", ",", "\"\<dynamical phase\>\"", ",", 
        "\"\<non-equilibrium steady state\>\"", ",", 
-       "\"\<nonequilibrium steady state\>\"", ",", "\"\<NESS\>\"", ",", " ", 
+       "\"\<nonequilibrium steady state\>\"", ",", "\"\<NESS\>\"", ",", 
        "\"\<non-equilibrium statistical mechanics\>\"", ",", 
        "\"\<nonequilibrium statistical mechanics\>\"", ",", 
-       "\"\<open quantum systems\>\"", " ", ",", "\"\<open systems\>\"", ",", 
+       "\"\<open quantum systems\>\"", ",", "\"\<open systems\>\"", ",", 
        "\"\<matrix product operators\>\"", ",", 
        "\"\<Matrix Product states\>\"", ",", "\"\<Keldysh\>\"", ",", 
        "\"\<Dissipative Many-Body\>\"", ",", "\"\<non-Hermitian\>\"", ",", 
        "\"\<Floquet\>\"", ",", "\"\<photon condensate\>\"", ",", 
        "\"\<driven-dissipative\>\"", ",", "\"\<quantum simulators\>\"", ",", 
-       "\"\<quantum simulation\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+       "\"\<quantum simulation\>\"", ",", 
+       "\"\<superconducting current mirror\>\"", ",", " ", 
+       "\"\<superinductor\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", "Parameters", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
@@ -592,8 +600,10 @@ Cell[BoxData[
    3.705621451744485*^9, 3.7056214679904485`*^9}, 3.705621886405749*^9, {
    3.7058554933176117`*^9, 3.705855495596858*^9}, {3.705856073056472*^9, 
    3.705856238342518*^9}, {3.705856303706759*^9, 3.705856329445891*^9}, {
-   3.705856414542287*^9, 3.705856416561863*^9}, {3.705856608507318*^9, 
-   3.705856610401478*^9}}],
+   3.705856414542287*^9, 3.705856416561863*^9}, 3.7063054930583324`*^9, 
+   3.7069995180056667`*^9, {3.708823694267226*^9, 3.7088237013717537`*^9}, {
+   3.7130523462335052`*^9, 3.7130523511015644`*^9}, {3.714447867608162*^9, 
+   3.7144478790108976`*^9}}],
 
 Cell[BoxData[{
  RowBox[{
@@ -637,26 +647,26 @@ Cell[BoxData[{
   RowBox[{"Nat", "=", 
    RowBox[{"Import", "[", 
     RowBox[{
-    "\"\<http://feeds.nature.com/nature/rss/aop?format=xml\>\"", ",", 
+    "\"\<http://feeds.nature.com/nature/rss/current\>\"", ",", 
      "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"NatPhys", "=", 
    RowBox[{"Import", "[", 
     RowBox[{
-    "\"\<http://feeds.nature.com/nphys/rss/aop?format=xml\>\"", ",", 
-     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+    "\"\<http://feeds.nature.com/nphys/rss/current\>\"", ",", "\"\<XML\>\""}],
+     "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"NatPhoton", "=", 
    RowBox[{"Import", "[", 
     RowBox[{
-    "\"\<http://feeds.nature.com/nphoton/rss/aop?format=xml\>\"", ",", 
+    "\"\<http://feeds.nature.com/nphoton/rss/current\>\"", ",", 
      "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"NatMat", "=", 
    RowBox[{"Import", "[", 
     RowBox[{
-    "\"\<http://feeds.nature.com/nmat/rss/aop?format=xml\>\"", ",", 
-     "\"\<XML\>\""}], "]"}]}], ";"}], "\[IndentingNewLine]", 
+    "\"\<http://feeds.nature.com/nmat/rss/current\>\"", ",", "\"\<XML\>\""}], 
+    "]"}]}], ";"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"NatList", "=", 
    RowBox[{"{", 
@@ -764,12 +774,13 @@ Cell[BoxData[{
    3.704643440702338*^9, 3.704643449188125*^9}, {3.704664801731126*^9, 
    3.7046648020823965`*^9}, {3.705617823196526*^9, 3.7056178338443146`*^9}, {
    3.70562007024331*^9, 3.705620077951931*^9}, {3.705621881343169*^9, 
-   3.705621885168758*^9}}]
+   3.705621885168758*^9}, 3.714447988378801*^9, {3.714448570456441*^9, 
+   3.7144485774150257`*^9}, {3.7144486704265766`*^9, 3.714448704958348*^9}, {
+   3.7144487404414268`*^9, 3.714448740819455*^9}, 3.7144487720366583`*^9}]
 },
-WindowSize->{1536, 781},
-WindowMargins->{{-8, Automatic}, {Automatic, -8}},
-FrontEndVersion->"11.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
-21, 2016)",
+WindowSize->{1519, 781},
+WindowMargins->{{-7, Automatic}, {Automatic, 0}},
+FrontEndVersion->"11.0 for Microsoft Windows (64-bit) (July 28, 2016)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -783,8 +794,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[400, 13, 26288, 582, 2112, "Input"],
-Cell[26691, 597, 5954, 169, 495, "Input"]
+Cell[400, 13, 26780, 592, 1912, "Input"],
+Cell[27183, 607, 6122, 171, 449, "Input"]
 }
 ]
 *)
