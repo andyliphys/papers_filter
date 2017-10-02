@@ -1,4 +1,7 @@
 # papers_filter
+v1.05 (01-Oct-2017)
+Make the filtering case insensitive.
+
 v1.04 (15-Sept-2017)
 Fixed minor bug regarding the RSS source of nature journals.
 
