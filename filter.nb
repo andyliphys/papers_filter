@@ -3,10 +3,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[         0,          0]
-NotebookDataLength[     34201,        811]
-NotebookOptionsPosition[     33642,        790]
-NotebookOutlinePosition[     33989,        805]
-CellTagsIndexPosition[     33946,        802]
+NotebookDataLength[     35167,        827]
+NotebookOptionsPosition[     34595,        805]
+NotebookOutlinePosition[     34955,        821]
+CellTagsIndexPosition[     34912,        818]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -92,23 +92,22 @@ Cell[BoxData[
       RowBox[{
       "\"\<circuit QED\>\"", ",", "\"\<artificial atom\>\"", ",", 
        "\"\<superconducting qubit\>\"", ",", 
-       "\"\<superconducting circuits\>\"", ",", "\"\<quantum circuits\>\"", 
+       "\"\<superconducting circuit\>\"", ",", "\"\<quantum circuit\>\"", 
        ",", "\"\<Jaynes-Cummings\>\"", ",", "\"\<Bose-Hubbard\>\"", ",", 
        "\"\<non-equilibrium phase\>\"", ",", "\"\<nonequilibrium phase\>\"", 
        ",", "\"\<dissipative phase\>\"", ",", "\"\<dynamical phase\>\"", ",", 
        "\"\<non-equilibrium steady state\>\"", ",", 
-       "\"\<nonequilibrium steady state\>\"", ",", "\"\<NESS\>\"", ",", 
+       "\"\<nonequilibrium steady state\>\"", ",", 
        "\"\<non-equilibrium statistical mechanics\>\"", ",", 
        "\"\<nonequilibrium statistical mechanics\>\"", ",", 
-       "\"\<open quantum systems\>\"", ",", "\"\<open systems\>\"", ",", 
-       "\"\<matrix product operators\>\"", ",", 
-       "\"\<Matrix Product states\>\"", ",", "\"\<Keldysh\>\"", ",", 
-       "\"\<Dissipative Many-Body\>\"", ",", "\"\<non-Hermitian\>\"", ",", 
+       "\"\<open quantum system\>\"", ",", "\"\<matrix product operator\>\"", 
+       ",", "\"\<Keldysh\>\"", ",", "\"\<Dissipative Many-Body\>\"", ",", 
        "\"\<Floquet\>\"", ",", "\"\<photon condensate\>\"", ",", 
-       "\"\<driven-dissipative\>\"", ",", "\"\<quantum simulators\>\"", ",", 
-       "\"\<quantum simulation\>\"", ",", 
-       "\"\<superconducting current mirror\>\"", ",", " ", 
-       "\"\<superinductor\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
+       "\"\<driven-dissipative\>\"", ",", "\"\<driven dissipative\>\"", ",", 
+       "\"\<quantum simulator\>\"", ",", "\"\<quantum simulation\>\"", ",", 
+       "\"\<superconducting current mirror\>\"", ",", "\"\<superinductor\>\"",
+        ",", "\"\<transmon\>\"", ",", "\"\<fluxonium\>\"", ",", 
+       "\"\<quantum annealing\>\""}], "}"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", "Parameters", "*)"}], "\[IndentingNewLine]", 
    RowBox[{
@@ -296,7 +295,13 @@ Cell[BoxData[
          RowBox[{
          "\"\<<p>Authors: \>\"", "<>", "author", "<>", "\"\<</p><p>\>\"", "<>",
            "abstract", "<>", "\"\<</p>\>\""}]}], ";", "\[IndentingNewLine]", 
-        "\[IndentingNewLine]", 
+        RowBox[{"main", "=", 
+         RowBox[{"StringReplace", "[", 
+          RowBox[{"main", ",", 
+           RowBox[{
+           "\"\<<img src=\\\"//\>\"", "\[Rule]", 
+            "\"\<<img src=\\\"http://\>\""}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"(*", 
          RowBox[{"Publication", " ", "date", " ", "check"}], "*)"}], 
         "\[IndentingNewLine]", 
@@ -311,8 +316,7 @@ Cell[BoxData[
                 RowBox[{"XMLElement", "[", 
                  RowBox[{
                   RowBox[{"{", 
-                   RowBox[{"_", ",", "\"\<publicationDate\>\""}], "}"}], ",", 
-                  "_", ",", 
+                   RowBox[{"_", ",", "\"\<date\>\""}], "}"}], ",", "_", ",", 
                   RowBox[{"{", "publicationDate_", "}"}]}], "]"}], "\[Rule]", 
                 "publicationDate"}], ",", "Infinity"}], "]"}], "[", 
              RowBox[{"[", "1", "]"}], "]"}], ",", 
@@ -395,7 +399,13 @@ Cell[BoxData[
          "title", "<>", "\"\< (\>\"", "<>", "jtitle", "<>", "\"\<)\>\""}]}], 
         ";", "\[IndentingNewLine]", 
         RowBox[{"main", "=", "abstract"}], ";", "\[IndentingNewLine]", 
-        "\[IndentingNewLine]", 
+        RowBox[{"main", "=", 
+         RowBox[{"StringReplace", "[", 
+          RowBox[{"main", ",", 
+           RowBox[{
+           "\"\<<img src=\\\"//\>\"", "\[Rule]", 
+            "\"\<<img src=\\\"http://\>\""}]}], "]"}]}], ";", 
+        "\[IndentingNewLine]", "\[IndentingNewLine]", 
         RowBox[{"(*", 
          RowBox[{"Publication", " ", "date", " ", "check"}], "*)"}], 
         "\[IndentingNewLine]", 
@@ -609,8 +619,14 @@ Cell[BoxData[
    3.705856414542287*^9, 3.705856416561863*^9}, 3.7063054930583324`*^9, 
    3.7069995180056667`*^9, {3.708823694267226*^9, 3.7088237013717537`*^9}, {
    3.7130523462335052`*^9, 3.7130523511015644`*^9}, {3.714447867608162*^9, 
-   3.7144478790108976`*^9}, {3.7158993198745346`*^9, 
-   3.715899326807596*^9}},ExpressionUUID->"bf16b71e-5bcd-4af7-996e-\
+   3.7144478790108976`*^9}, {3.7158993198745346`*^9, 3.715899326807596*^9}, 
+   3.717208716257024*^9, 3.7172093686964197`*^9, {3.71720957607665*^9, 
+   3.7172096527858114`*^9}, {3.7172096850556307`*^9, 
+   3.7172096994371014`*^9}, {3.7172104704368677`*^9, 3.717210478632556*^9}, 
+   3.7172107565976143`*^9, 3.7183886504229927`*^9, {3.718388880348226*^9, 
+   3.718388901479185*^9}, 3.718388947948759*^9, {3.718389102413104*^9, 
+   3.718389121902698*^9}, {3.718389173322239*^9, 
+   3.718389176957057*^9}},ExpressionUUID->"bf16b71e-5bcd-4af7-996e-\
 678b76092127"],
 
 Cell[BoxData[{
@@ -649,8 +665,7 @@ Cell[BoxData[{
           ",", 
           RowBox[{"{", 
            RowBox[{"j", ",", "1", ",", "arXivListLen"}], "}"}]}], "]"}], ",", 
-        "1"}], "]"}], "]"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+        "1"}], "]"}], "]"}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"Nat", "=", 
    RowBox[{"Import", "[", 
@@ -698,8 +713,7 @@ Cell[BoxData[{
           ",", 
           RowBox[{"{", 
            RowBox[{"j", ",", "1", ",", "NatListLen"}], "}"}]}], "]"}], ",", 
-        "1"}], "]"}], "]"}], "]"}]}], ";"}], 
-  "\[IndentingNewLine]"}], "\[IndentingNewLine]", 
+        "1"}], "]"}], "]"}], "]"}]}], ";"}], "\n"}], "\[IndentingNewLine]", 
  RowBox[{
   RowBox[{"PRL", "=", 
    RowBox[{"Import", "[", 
@@ -784,13 +798,15 @@ Cell[BoxData[{
    3.70562007024331*^9, 3.705620077951931*^9}, {3.705621881343169*^9, 
    3.705621885168758*^9}, 3.714447988378801*^9, {3.714448570456441*^9, 
    3.7144485774150257`*^9}, {3.7144486704265766`*^9, 3.714448704958348*^9}, {
-   3.7144487404414268`*^9, 3.714448740819455*^9}, 
-   3.7144487720366583`*^9},ExpressionUUID->"2a7f2afe-1b5c-4820-8890-\
+   3.7144487404414268`*^9, 3.714448740819455*^9}, 3.7144487720366583`*^9, {
+   3.718388420577256*^9, 3.718388421273314*^9}, {3.7183893705631332`*^9, 
+   3.7183893732232447`*^9}},ExpressionUUID->"2a7f2afe-1b5c-4820-8890-\
 9e2454772da3"]
 },
 WindowSize->{1519, 781},
-WindowMargins->{{-7, Automatic}, {Automatic, 0}},
-FrontEndVersion->"11.2 for Microsoft Windows (64-bit) (September 10, 2017)",
+WindowMargins->{{77, Automatic}, {72, Automatic}},
+FrontEndVersion->"11.2 for Mac OS X x86 (32-bit, 64-bit Kernel) (September \
+10, 2017)",
 StyleDefinitions->"Default.nb"
 ]
 (* End of Notebook Content *)
@@ -804,8 +820,8 @@ CellTagsIndex->{}
 *)
 (*NotebookFileOutline
 Notebook[{
-Cell[400, 13, 27052, 600, 1910, "Input",ExpressionUUID->"bf16b71e-5bcd-4af7-996e-678b76092127"],
-Cell[27455, 615, 6183, 173, 447, "Input",ExpressionUUID->"2a7f2afe-1b5c-4820-8890-9e2454772da3"]
+Cell[400, 13, 27945, 616, 2194, "Input",ExpressionUUID->"bf16b71e-5bcd-4af7-996e-678b76092127"],
+Cell[28348, 631, 6243, 172, 493, "Input",ExpressionUUID->"2a7f2afe-1b5c-4820-8890-9e2454772da3"]
 }
 ]
 *)

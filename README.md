@@ -1,4 +1,8 @@
 # papers_filter
+v1.06 (30-Oct-2017)
+Fixed the image path.
+Fixed the publication date extraction for Nature journals.
+
 v1.05 (01-Oct-2017)
 Make the filtering case insensitive.
 
