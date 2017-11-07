@@ -1,4 +1,7 @@
 # papers_filter
+v1.07 (06-Nov-2017)
+Fixed the error when filtering Nature news items.
+
 v1.06 (30-Oct-2017)
 Fixed the image path.
 Fixed the publication date extraction for Nature journals.
